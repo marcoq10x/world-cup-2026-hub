@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "World Cup 2026 Hub API",
+    "description": "Comprehensive API for managing the 2026 Soccer World Cup matches, stadiums, teams, and users."
+  },
+  "host": "world-cup-2026-hub.onrender.com",
+  "basePath": "/",
+  "schemes": ["https", "http"],
+  "paths": {
+    "/matches": {
+      "get": {
+        "tags": ["Matches"],
+        "summary": "Get all matches",
+        "responses": { "200": { "description": "Successful operation" } }
+      },
+      "post": {
+        "tags": ["Matches"],
+        "summary": "Create a new match",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "matchup": { "type": "string", "example": "USA vs Mexico" },
+                "date": { "type": "string", "example": "2026-06-15" },
+                "hostCity": { "type": "string", "example": "Los Angeles" },
+                "homeTeam": { "type": "string", "example": "USA" },
+                "awayTeam": { "type": "string", "example": "Mexico" },
+                "predictedScore": { "type": "string", "example": "2-1" },
+                "status": { "type": "string", "example": "Scheduled" }
+              }
+            }
+          }
+        ],
+        "responses": { "201": { "description": "Match created" } }
+      }
+    },
+    "/matches/{id}": {
+      "get": {
+        "tags": ["Matches"],
+        "summary": "Get a match by ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }],
+        "responses": { "200": { "description": "Successful operation" } }
+      },
+      "put": {
+        "tags": ["Matches"],
+        "summary": "Update a match",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
+          { "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }
+        ],
+        "responses": { "204": { "description": "Match updated" } }
+      },
+      "delete": {
+        "tags": ["Matches"],
+        "summary": "Delete a match",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }],
+        "responses": { "200": { "description": "Match deleted" } }
+      }
+    },
+    "/stadiums": {
+      "get": { "tags": ["Stadiums"], "summary": "Get all stadiums", "responses": { "200": { "description": "OK" } } },
+      "post": { "tags": ["Stadiums"], "summary": "Add a new stadium", "parameters": [{ "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "201": { "description": "Created" } } }
+    },
+    "/stadiums/{id}": {
+      "get": { "tags": ["Stadiums"], "summary": "Get a stadium by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "OK" } } },
+      "put": { "tags": ["Stadiums"], "summary": "Update a stadium", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }, { "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "204": { "description": "Updated" } } },
+      "delete": { "tags": ["Stadiums"], "summary": "Delete a stadium", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "Deleted" } } }
+    },
+    "/teams": {
+      "get": { "tags": ["Teams"], "summary": "Get all teams", "responses": { "200": { "description": "OK" } } },
+      "post": { "tags": ["Teams"], "summary": "Add a new team", "parameters": [{ "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "201": { "description": "Created" } } }
+    },
+    "/teams/{id}": {
+      "get": { "tags": ["Teams"], "summary": "Get a team by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "OK" } } },
+      "put": { "tags": ["Teams"], "summary": "Update a team", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }, { "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "204": { "description": "Updated" } } },
+      "delete": { "tags": ["Teams"], "summary": "Delete a team", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "Deleted" } } }
+    },
+    "/users": {
+      "get": { "tags": ["Users"], "summary": "Get all users", "responses": { "200": { "description": "OK" } } },
+      "post": { "tags": ["Users"], "summary": "Add a new user", "parameters": [{ "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "201": { "description": "Created" } } }
+    },
+    "/users/{id}": {
+      "get": { "tags": ["Users"], "summary": "Get a user by ID", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "OK" } } },
+      "put": { "tags": ["Users"], "summary": "Update a user", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }, { "name": "body", "in": "body", "required": true, "schema": { "type": "object" } }], "responses": { "204": { "description": "Updated" } } },
+      "delete": { "tags": ["Users"], "summary": "Delete a user", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "string" }], "responses": { "200": { "description": "Deleted" } } }
+    }
+  }
+}
