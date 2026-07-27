@@ -13,8 +13,14 @@ mongodb.initDb((err) => {
   if (err) {
     console.log(err);
   } else {
-    app.listen(port, () => {
-      console.log(`Connected to DB and listening on ${port}`);
-    });
+    // Only listen to the port if we are NOT running automated tests
+    if (process.env.NODE_ENV !== 'test') {
+      app.listen(port, () => {
+        console.log(`Connected to DB and listening on ${port}`);
+      });
+    }
   }
 });
+
+// Export the app so our testing framework (Jest) can access it
+module.exports = app;
