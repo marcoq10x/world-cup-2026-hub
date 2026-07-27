@@ -5,7 +5,7 @@
     "title": "World Cup 2026 Hub API",
     "description": "Comprehensive API for managing the 2026 Soccer World Cup matches, stadiums, teams, and users."
   },
-  "host": "world-cup-2026-hub.onrender.com",
+  "host": "world-cup-2026-hub-eckf.onrender.com",
   "basePath": "/",
   "schemes": ["https", "http"],
   "paths": {
